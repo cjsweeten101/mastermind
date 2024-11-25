@@ -27,7 +27,6 @@ class Computer
 
   def check_for_future_matches(idx, code, guess, result)
     if code[idx] == guess[idx]
-      p 'here?'
       result[:exact] += 1
     else
       result[:wrong_spot] += 1
