@@ -2,11 +2,13 @@
 class Board
   def initialize
     @board_state = { guess_history: [], response_history: [] }
+    @turn_count = 0
   end
 
   def update(guess, response)
     @board_state[:guess_history] << guess
     @board_state[:response_history] << response
+    @turn_count += 1
   end
 
   def to_s
@@ -18,10 +20,10 @@ class Board
       end
       result << "Turn: #{index + 1}\n"
     end
-    result.to_s
+    result
   end
 
   def game_over?
-    false
+    @turn_count >= 12
   end
 end
