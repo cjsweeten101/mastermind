@@ -10,9 +10,8 @@ class Player
     result = Interface.get_user_input.split(Regexp.union(delimiters))
     until result.size == 4 && (result.all? { |val| (1..6).include? val.to_i })
       puts 'sorry input not recognized, please try again'
-      p result
       result = Interface.get_user_input.split(Regexp.union(delimiters))
     end
-    result
+    result.map(&:to_i)
   end
 end
