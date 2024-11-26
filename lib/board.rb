@@ -1,6 +1,7 @@
 # Responsible for storing game state and checking game over
 class Board
-  def initialize
+  def initialize(code)
+    @secret_code = code
     @board_state = { guess_history: [], response_history: [] }
     @turn_count = 0
   end
@@ -23,7 +24,11 @@ class Board
     result
   end
 
-  def game_over?
+  def correct_guess?(current_guess)
+    current_guess == @secret_code
+  end
+
+  def turn_limit?
     @turn_count >= 12
   end
 end
