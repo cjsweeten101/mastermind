@@ -20,7 +20,7 @@ def game_loop(player_is_guesser)
     board = Board.new(computer.generate_code)
     player_loop(board, player, computer)
   else
-    board = Board.new(player.code)
+    board = Board.new(player.generate_code)
     computer_loop(board, player, computer)
   end
   puts ending_message(board)
@@ -41,7 +41,10 @@ def computer_loop(board, player, computer)
   until game_over?(board)
     puts 'secret code'
     p player.code
-    # computer logic
+    current_guess = computer.make_guess
+    current_response = player.respond_to_guess(current_guess)
+    board.update(current_guess, current_response)
+    puts board
   end
 end
 
