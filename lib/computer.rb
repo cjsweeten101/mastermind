@@ -2,12 +2,8 @@
 class Computer
   attr_reader :random_code
 
-  def initialize
-    @random_code = generate_code
-  end
-
   def generate_code
-    Array.new(4) { rand(1..6) }
+    @random_code = Array.new(4) { rand(1..6) }
   end
 
   def respond_to_guess(guess)

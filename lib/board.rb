@@ -24,8 +24,8 @@ class Board
     result
   end
 
-  def correct_guess?(current_guess)
-    current_guess == @secret_code
+  def correct_guess?
+    @board_state[:guess_history][-1] == @secret_code
   end
 
   def turn_limit?
