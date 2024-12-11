@@ -72,7 +72,6 @@ class Computer
   end
 
   def remove_same_responses(set, response)
-    # You know it still could be here
     set.select do |code|
       response == generate_response(code.clone, @last_guess.clone)
     end
