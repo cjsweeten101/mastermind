@@ -38,10 +38,9 @@ def player_loop(board, player, computer)
 end
 
 def computer_loop(board, player, computer)
+  current_response = nil
   until game_over?(board)
-    puts 'secret code'
-    p player.code
-    current_guess = computer.make_guess
+    current_guess = computer.make_guess(current_response)
     current_response = player.respond_to_guess(current_guess)
     board.update(current_guess, current_response)
     puts board
@@ -53,10 +52,10 @@ def game_over?(board)
 end
 
 def ending_message(board)
-  if board.turn_limit?
-    'Turn limit reached!'
-  elsif board.correct_guess?
-    'Code guessed correctly!'
+  if board.correct_guess?
+    'Code guessed! Game over!'
+  elsif board.turn_limit?
+    'Out of turns! Game over!'
   end
 end
 

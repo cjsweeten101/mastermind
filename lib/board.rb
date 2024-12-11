@@ -1,5 +1,7 @@
 # Responsible for storing game state and checking game over
 class Board
+  attr_reader :board_state
+
   def initialize(code)
     @secret_code = code
     @board_state = { guess_history: [], response_history: [] }

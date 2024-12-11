@@ -13,4 +13,13 @@ module Response
     end
     result
   end
+
+  def check_for_future_matches(idx, code, guess, result)
+    if code[idx] == guess[idx]
+      result[:exact] += 1
+    else
+      result[:wrong_spot] += 1
+    end
+    code[idx] = nil
+  end
 end

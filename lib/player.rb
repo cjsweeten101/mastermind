@@ -30,6 +30,6 @@ class Player
   end
 
   def respond_to_guess(guess)
-    generate_response(guess, @random_code.clone)
+    generate_response(guess, @code.clone)
   end
 end
